@@ -1,26 +1,60 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --bg: #f7f7fb;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-[var(--bg)] text-slate-800;
+}
+
+/* Nice scrollbar (optional) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c7d2fe transparent;
+}
+
+
+:root {
+  --surface-80: rgba(255, 255, 255, 0.8);
+  --border: rgb(229, 231, 235);
+  --muted-bg: rgb(248, 250, 252);
+  --muted: rgb(100, 116, 139);
+  --accent: rgb(59, 130, 246);
+  --text: rgb(17, 24, 39);
+  --input: rgb(255, 255, 255);
+  --bg: rgb(249, 250, 251);
+  --sidebar-bg: rgb(255, 255, 255);
+  --active-bg: rgba(255, 255, 255, 0.259);
+  --main-bg: rgb(249, 250, 251);
+}
+
+/* Dark theme */
+.dark {
+  --surface-80: rgba(17, 24, 39, 0.8);
+  --border: rgb(55, 65, 81);
+  --muted-bg: rgb(31, 41, 55);
+  --muted: rgb(156, 163, 175);
+  --accent: rgb(59, 130, 246);
+  --text: rgb(243, 244, 246);
+  --input: rgb(31, 41, 55);
+  --bg: rgb(17, 24, 39);
+  --sidebar-bg: rgb(31, 41, 55);
+  --active-bg: rgb(17, 24, 39);
+  --main-bg: rgb(17, 24, 39);
+}
+
+/* Night theme (darker variant) */
+.night {
+  --surface-80: rgba(0, 0, 0, 0.9);
+  --border: rgb(31, 41, 55);
+  --muted-bg: rgb(17, 24, 39);
+  --muted: rgb(107, 114, 128);
+  --accent: rgb(168, 85, 247);
+  --text: rgb(249, 250, 251);
+  --input: rgb(17, 24, 39);
+  --bg: rgb(0, 0, 0);
+  --sidebar-bg: rgb(17, 24, 39);
+  --active-bg: rgb(17, 24, 39);
+  --main-bg: rgb(0, 0, 0);
 }
