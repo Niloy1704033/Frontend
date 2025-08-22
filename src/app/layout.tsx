@@ -19,7 +19,7 @@ export default function RootLayout({ children }: {
           <div className={`flex-1 flex flex-col transition-all duration-300 ${open ? "lg:ml-64" : "lg:ml-16"
             }`} >
             <Topbar onToggle={() => setOpen((prev) => !prev)} />
-            <main>{children}</main>
+            <main className="p-3">{children}</main>
           </div>
         </div>
       </body>

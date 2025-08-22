@@ -82,7 +82,7 @@ export const Topbar = ({ onToggle }: { onToggle: () => void }) => {
           </nav>
 
           {/* Right controls */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center justify-between w-full sm:w-auto gap-4">
             {/* Search */}
             <div className="relative w-52 sm:w-72 max-w-full">
               <input

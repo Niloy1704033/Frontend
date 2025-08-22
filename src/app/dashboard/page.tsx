@@ -1,19 +1,21 @@
 "use client";
 import React, { useState } from 'react';
-import { 
-  MoreHorizontal, 
+import {
+  MoreHorizontal,
   Download,
   ExternalLink,
   Share2,
   TrendingUp,
   ChevronDown,
   Check,
-  FileText
+  FileText,
+  SquarePen,
+  Upload
 } from 'lucide-react';
 
 const Dashboard = () => {
   const [selectedActivityFilter, setSelectedActivityFilter] = useState('All');
-  
+
   const recentResumes = [
     { id: 1, title: 'UI/UX design final resume 2025', date: '23 June, 2025', bgColor: 'bg-teal-100' },
     { id: 2, title: 'Software Engineer 2025 Resume', date: '23 June, 2025', bgColor: 'bg-gray-100' },
@@ -50,25 +52,31 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="flex flex-col lg:flex-row">
-        
+
         {/* Main Content */}
         <div className="flex-1 p-4 sm:p-6 space-y-6">
           {/* Hero Section */}
-          <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-6 sm:p-8 text-white relative overflow-hidden">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-2">100% Interview Prep</h2>
-            <h3 className="text-xl sm:text-2xl font-bold mb-4">With Accurate Tools</h3>
-            <p className="text-purple-100 mb-6">Get your job today!</p>
-            <button className="bg-white text-purple-600 font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg hover:bg-gray-100 transition-colors flex items-center gap-2 text-sm sm:text-base">
-              Start Preparation
-              <ExternalLink className="w-4 h-4" />
-            </button>
+          <div className='bg-gradient-to-r from-purple-600 to-blue-600 p-5 text-white rounded-xl'>
+            <div className="flex items-center flex-wrap justify-between gap-4">
+              <div className='flex flex-col justify-center'>
+                <div className="text-2xl font-semibold">100% Interview Prep</div>
+                <div className="text-2xl font-semibold">With Accurate Tools</div>
+                <p className="text-purple-100 text-sm">Get your job today!</p>
+              </div>
+              <div >
+                <button className="bg-white text-black font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg hover:bg-gray-100 transition-colors flex items-center gap-2 text-sm sm:text-base">
+                  Start Preparation
+                  <ExternalLink className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
           </div>
 
           {/* Recent Resumes */}
           <div className="bg-white rounded-2xl p-4 sm:p-6">
             <div className="flex items-center justify-between mb-4 sm:mb-6">
               <h3 className="text-lg sm:text-xl font-semibold text-gray-900">Recent Resumes</h3>
-              <button className="text-purple-600 hover:text-purple-700 text-sm sm:text-base font-medium">See all</button>
+              <button className="text-black hover:text-purple-700 text-sm sm:text-base font-medium">See all</button>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {recentResumes.map((resume) => (
@@ -86,10 +94,10 @@ const Dashboard = () => {
                     <p className="text-xs sm:text-sm text-gray-500">{resume.date}</p>
                     <div className="flex items-center gap-2">
                       <button className="p-1 text-gray-400 hover:text-gray-600">
-                        <Download className="w-4 h-4" />
+                        <Upload className="w-4 h-4" />
                       </button>
                       <button className="p-1 text-gray-400 hover:text-gray-600">
-                        <Share2 className="w-4 h-4" />
+                        <SquarePen className="w-4 h-4" />
                       </button>
                     </div>
                   </div>
@@ -104,7 +112,7 @@ const Dashboard = () => {
             <div className="space-y-4">
               <h3 className="text-lg sm:text-xl font-semibold text-gray-900">Overview</h3>
               {overviewCards.map((card, i) => (
-                <div key={i} className="bg-white rounded-xl p-4 sm:p-6">
+                <div key={i} className="bg-purple-100 rounded-xl p-4 sm:p-6">
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-gray-600 text-sm mb-1">{card.title}</p>
@@ -112,7 +120,7 @@ const Dashboard = () => {
                         {card.current}<span className="text-gray-400">/{card.total}</span>
                       </p>
                     </div>
-                    <button className="bg-purple-100 text-purple-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-sm sm:text-base font-medium hover:bg-purple-200 transition-colors">
+                    <button className="bg-white text-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-sm font-semibold transition-colors">
                       {card.action}
                     </button>
                   </div>
@@ -121,7 +129,7 @@ const Dashboard = () => {
             </div>
 
             {/* Auto Application Chart */}
-            <div className="bg-white rounded-xl p-4 sm:p-6 overflow-x-auto">
+            <div className="bg-white rounded-xl p-4 sm:p-6 overflow-hidden">
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <p className="text-gray-600 text-sm">Auto application on</p>
@@ -137,21 +145,41 @@ const Dashboard = () => {
                   <ChevronDown className="w-4 h-4" />
                 </div>
               </div>
-              
+
               {/* Bar chart - horizontally scrollable on mobile */}
-              <div className="flex items-end gap-2 h-28 sm:h-32">
+              <div className="flex items-end justify-between gap-2 w-full h-full">
                 {[
-                  { color: "bg-red-500", value: 20 },
-                  { color: "bg-blue-500", value: 25 },
-                  { color: "bg-purple-500", value: 18 },
-                  { color: "bg-gray-700", value: 25 },
-                  { color: "bg-blue-300", value: 20 }
-                ].map((bar, i) => (
-                  <div key={i} className={`${bar.color} rounded-t w-6 sm:w-8 flex items-end justify-center`} style={{ height: `${bar.value * 4}px` }}>
-                    <span className="text-white text-[10px] sm:text-xs mb-1">{bar.value}</span>
-                  </div>
-                ))}
+                  { color: "bg-red-500", value: 20, label: 'Dice' },
+                  { color: "bg-blue-500", value: 25, label: 'Linked In' },
+                  { color: "bg-purple-500", value: 18, label: 'Monster' },
+                  { color: "bg-gray-700", value: 25, label: 'Zip Recruiter' },
+                  { color: "bg-blue-300", value: 20, label: 'Otheres' }
+                ].map((bar, i, arr) => {
+                  const max = Math.max(...arr.map(b => b.value)); // highest value
+                  const heightPercent = (bar.value / max) * 100;  // relative height %
+
+                  return (
+                    <div
+                      key={i}
+                      className="w-6 sm:w-8 h-full flex flex-col items-center justify-end"
+                    >
+                      {/* Bar */}
+                      <div
+                        className={`${bar.color} w-full rounded-t flex justify-center relative`}
+                        style={{ height: `${heightPercent}%` }}
+                      >
+                        {/* Value at the top inside the bar */}
+                        <span className="absolute top-1 text-white text-[10px] sm:text-xs">
+                          {bar.value}
+                        </span>
+                      </div>
+
+                    </div>
+                  );
+                })}
               </div>
+
+
             </div>
           </div>
 
@@ -171,11 +199,10 @@ const Dashboard = () => {
                 <button
                   key={filter}
                   onClick={() => setSelectedActivityFilter(filter)}
-                  className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
-                    selectedActivityFilter === filter
-                      ? 'bg-purple-100 text-purple-600'
-                      : 'text-gray-600 hover:text-gray-900'
-                  }`}
+                  className={`px-3 py-1 rounded-full text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${selectedActivityFilter === filter
+                    ? 'bg-purple-100 text-purple-600'
+                    : 'text-gray-600 hover:text-gray-900'
+                    }`}
                 >
                   {filter}
                 </button>
@@ -200,31 +227,33 @@ const Dashboard = () => {
         </div>
 
         {/* Sidebar (moves below on mobile) */}
-        <div className="w-full lg:w-80 p-4 sm:p-6 space-y-6">
+        <div className="w-full lg:w-80 p-2 sm:p-4 space-y-6">
           {/* Next Steps */}
-          <div className="bg-white rounded-2xl p-4 sm:p-6">
+          <div className="bg-slate-100 rounded-2xl p-4">
             <div className="flex items-center justify-between mb-4 sm:mb-6">
               <h3 className="text-base sm:text-lg font-semibold text-gray-900">Next Steps</h3>
               <span className="text-xs sm:text-sm text-gray-500">Done 2/4</span>
             </div>
-            <div className="space-y-3 sm:space-y-4">
+            <div className="space-y-3 ">
               {nextSteps.map((step) => (
-                <div key={step.id} className="flex items-start gap-2 sm:gap-3">
-                  <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center mt-0.5 ${
-                    step.status === 'completed' ? 'bg-green-500' : 'bg-gray-200'
+                <div className={`space-y-3 rounded-lg bg-white p-2 ${step.status === 'completed' ? 'border border-green-500' : ''
                   }`}>
-                    {step.status === 'completed' ? (
-                      <Check className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-white" />
-                    ) : (
-                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-400 rounded-full"></div>
-                    )}
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="font-medium text-gray-900 text-sm sm:text-base mb-1">{step.title}</h4>
-                    <p className="text-gray-600 text-xs sm:text-sm mb-2">{step.description}</p>
-                    <button className="text-purple-600 text-xs sm:text-sm font-medium hover:text-purple-700">
-                      {step.action}
-                    </button>
+                  <div key={step.id} className="flex items-start gap-2 sm:gap-3">
+                    <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center mt-0.5 ${step.status === 'completed' ? 'bg-green-500' : 'bg-gray-200'
+                      }`}>
+                      {step.status === 'completed' ? (
+                        <Check className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-white" />
+                      ) : (
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-400 rounded-full"></div>
+                      )}
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-medium text-gray-900 text-sm sm:text-base mb-1">{step.title}</h4>
+                      <p className="text-gray-600 text-xs sm:text-sm mb-2">{step.description}</p>
+                      <button className="text-purple-600 text-xs sm:text-sm font-medium hover:text-purple-700">
+                        {step.action}
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -246,7 +275,7 @@ const Dashboard = () => {
                       <p className="text-gray-500 text-[10px] sm:text-xs">{job.location}</p>
                     </div>
                   </div>
-                  <button className="text-purple-600 text-xs sm:text-sm font-medium hover:text-purple-700">
+                  <button className="bg-purple-100 px-2 py-1 text-xs rounded-full font-medium hover:text-purple-700">
                     Apply
                   </button>
                 </div>
