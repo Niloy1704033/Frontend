@@ -50,11 +50,11 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       <div className="flex flex-col lg:flex-row">
 
         {/* Main Content */}
-        <div className="flex-1 p-4 sm:p-6 space-y-6">
+        <div className="flex-1 space-y-6">
           {/* Hero Section */}
           <div className='bg-gradient-to-r from-purple-600 to-blue-600 p-5 text-white rounded-xl'>
             <div className="flex items-center flex-wrap justify-between gap-4">
@@ -112,7 +112,7 @@ const Dashboard = () => {
             <div className="space-y-4">
               <h3 className="text-lg sm:text-xl font-semibold text-gray-900">Overview</h3>
               {overviewCards.map((card, i) => (
-                <div key={i} className="bg-purple-100 rounded-xl p-4 sm:p-6">
+                <div key={i} className="bg-[#edeefc] rounded-xl p-4 sm:p-6">
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-gray-600 text-sm mb-1">{card.title}</p>
@@ -147,7 +147,7 @@ const Dashboard = () => {
               </div>
 
               {/* Bar chart - horizontally scrollable on mobile */}
-              <div className="flex items-end justify-between gap-2 w-full h-full">
+              <div className="flex items-end gap-4 w-full h-full">
                 {[
                   { color: "bg-red-500", value: 20, label: 'Dice' },
                   { color: "bg-blue-500", value: 25, label: 'Linked In' },
@@ -161,7 +161,7 @@ const Dashboard = () => {
                   return (
                     <div
                       key={i}
-                      className="w-6 sm:w-8 h-full flex flex-col items-center justify-end"
+                      className="w-6 sm:w-9 h-full flex flex-col items-center justify-end"
                     >
                       {/* Bar */}
                       <div
@@ -200,7 +200,7 @@ const Dashboard = () => {
                   key={filter}
                   onClick={() => setSelectedActivityFilter(filter)}
                   className={`px-3 py-1 rounded-full text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${selectedActivityFilter === filter
-                    ? 'bg-purple-100 text-purple-600'
+                    ? 'bg-[#edeefc] text-purple-600'
                     : 'text-gray-600 hover:text-gray-900'
                     }`}
                 >

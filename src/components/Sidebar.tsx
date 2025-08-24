@@ -66,10 +66,10 @@ export const Sidebar = ({
       <div className="h-15 flex items-center justify-between border-b px-6" style={{ borderColor: "var(--border)" }}>
         <div
           className={clsx(
-            "transition-all duration-200 font-bold",
-            open ? "text-2xl" : "text-xl"
+            "transition-all duration-200 font-black text-indigo-700 ",
+            open ? "text-2xl" : "text-2xl"
           )}
-          style={{ color: "var(--brand)" }}
+
         >
           {brandText}
         </div>
@@ -87,7 +87,7 @@ export const Sidebar = ({
               href={it.href}
               onClick={() => setIsMobileMenuOpen(false)}
               className={clsx(
-                "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-all duration-200 relative group",
+                "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all duration-200 relative group",
                 "outline-none",
               )}
               style={{

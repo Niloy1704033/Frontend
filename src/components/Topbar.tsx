@@ -72,13 +72,17 @@ export const Topbar = ({ onToggle }: { onToggle: () => void }) => {
         <div className="flex items-center justify-between w-full">
           {/* Breadcrumb */}
           <nav className="hidden md:flex items-center gap-2 text-sm">
-            <span className="px-3 py-1 rounded-lg bg-[var(--muted-bg)] text-[var(--muted)] transition-colors duration-200">
+            <span className="rtext-[var(--muted-bg)] text-[var(--muted)] transition-colors duration-200">
               Dashboard
             </span>
-            <span className="text-[var(--muted)]/40 transition-colors duration-200">/</span>
-            <span className="px-3 py-1 rounded-lg bg-[var(--accent)] text-white font-medium transition-colors duration-200">
-              {pageTitle}
-            </span>
+            {pageTitle && pageTitle !== 'Dashboard' && (
+              <>
+                <span className="text-[var(--muted)]/40 transition-colors duration-200">/</span>
+                <span className="text-[var(--accent)] font-medium transition-colors duration-200">
+                  {pageTitle}
+                </span>
+              </>
+            )}
           </nav>
 
           {/* Right controls */}

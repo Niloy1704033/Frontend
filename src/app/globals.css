@@ -6,7 +6,15 @@
 
 body {
   @apply bg-[var(--bg)] text-slate-800;
+  font-family: var(--font-sans);
 }
+
+
+@theme {
+  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
 
 /* Nice scrollbar (optional) */
 * {
@@ -16,7 +24,7 @@ body {
 
 
 :root {
-  --surface-80: rgba(255, 255, 255, 0.8);
+  --surface-80: rgba(255, 255, 255, 0.637);
   --border: rgb(229, 231, 235);
   --muted-bg: rgb(248, 250, 252);
   --muted: rgb(100, 116, 139);
@@ -25,7 +33,7 @@ body {
   --input: rgb(255, 255, 255);
   --bg: rgb(249, 250, 251);
   --sidebar-bg: rgb(255, 255, 255);
-  --active-bg: rgba(255, 255, 255, 0.259);
+  --active-bg: #E5E7EB;
   --main-bg: rgb(249, 250, 251);
 }
 

@@ -1,7 +1,7 @@
 "use client"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
-    ChevronRight
+    ChevronRight, PlusCircle
 
 } from 'lucide-react';
 
@@ -25,22 +25,34 @@ export default function page() {
     const [resumeScore, setResumeScore] = useState(false);
     const [uploading, setUploading] = useState(false);
     const [analyzing, setAnalyzing] = useState(false);
-    const [score, setScore] = useState(false);
+    const [finalScore, setFinalScore] = useState(false);
 
     const handleClose = () => {
+        setShowUpload(false);
         setResumeScore(false);
         setMain(true);
     };
-    const handleUpload = () => {
+
+    const handleUploadResume = () => {
         setShowUpload(false);
         setResumeScore(true);
-    };
+    }
 
-    const handleResumeScore = () => {
+    const handleUploading = () => {
         setResumeScore(false);
         setUploading(true);
-    };
-    
+    }
+
+    const handleUploadComplete = () => {
+        setUploading(false);
+        setAnalyzing(true);
+    }
+
+    const handleFinalScore = () => {
+        setAnalyzing(false);
+        setFinalScore(true);
+    }
+
     let content;
 
     if (main) {
@@ -69,18 +81,18 @@ export default function page() {
                         <div className='mt-5'>
                             <div className='flex items-center justify-between'>
                                 <div className='text-lg font-semibold'>Recent Interviews</div>
-                                <button className="px-3 py-2 bg-blue-600 text-gray-50 rounded-lg cursor-pointer" onClick={() => {
+                                <button className="px-3 py-2 bg-blue-600 text-gray-50 rounded-lg cursor-pointer text-sm flex items-center gap-2" onClick={() => {
                                     setShowUpload(!showUpload);
                                     setMain(false);
-                                }}>Optimize Resume</button>
+                                }}>Optimize Resume <PlusCircle className="w-4 h-4" /></button>
                             </div>
 
-                            <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-2'>
+                            <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-2 '>
                                 {cards.map((c) => (
-                                    <div className='p-6 bg-white rounded-xl' key={c.id}>
+                                    <div className='p-6 bg-white rounded-xl border border-gray-300 rounded-lg' key={c.id}>
                                         <div className='flex items-center gap-2'>
-                                            <div className='border rounded-lg border h-15 w-15'>
-
+                                            <div className='bg-gray-200 rounded-lg h-15 w-15 flex items-center justify-center'>
+                                                <img src="/pdf.png" alt="" className='h-12 w-12' />
                                             </div>
                                             <div className='flex flex-col'>
 
@@ -106,18 +118,18 @@ export default function page() {
                 </div>
             </div>
     } else if (showUpload) {
-        content = <UploadResume onUpload={handleUpload} />;
+        content = <UploadResume onClose={handleClose} onUploadResume={handleUploadResume} />;
     } else if (resumeScore) {
-        content = <ResumeScorer onClose={handleClose} onResumeScore={handleResumeScore}/>;
-    } else if (uploading) { 
-        content = <div><UploadingResume /></div>;
+        content = <ResumeScorer onClose={handleClose} onUploading={handleUploading} />;
+    } else if (uploading) {
+        content = <UploadingResume onUploadComplete={handleUploadComplete} />;
     } else if (analyzing) {
-        content = <div><AnalyzeResume /></div>;
-    } else if (analyzing) {
-        content = <div><AnalyzeResume /></div>;
+        content = <AnalyzeResume onFinalScore={handleFinalScore} />;
+    } else if (finalScore) {
+        content = <FinalScore />;
     }
 
 
 
-    return <div>{content}</div>;
+    return <div className='h-screen'>{content}</div>;
 }
