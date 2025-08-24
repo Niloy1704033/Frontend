@@ -3,12 +3,7 @@ import React from 'react';
 import { FolderPlus, X, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 
-type Props = {
-  onClose?: any;
-  onUploading?: any;
-}
-
-export default function ResumeScorer({ onClose, onUploading } : Props) {
+export default function ResumeScorer({ onClose, onUploading }) {
   const resumeHistory = [
     {
       name: 'my-cv.pdf',

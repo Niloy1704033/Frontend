@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/resume/AnalyzeResume.jsx", "src/app/resume/CircularProgress.jsx", "src/app/resume/FinalScore.jsx", "src/app/resume/UploadingResume.jsx", "src/app/resume/UploadResume.jsx", "src/app/resume/ResumeScorer.jsx"],
   "exclude": ["node_modules"]
 }

@@ -38,7 +38,6 @@ export const Sidebar = ({
   setOpen: (val: boolean) => void;
 }) => {
   const pathname = usePathname();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">(getInitialTheme);
 
   // Keep <html data-theme> in sync so CSS vars above take effect
@@ -49,8 +48,7 @@ export const Sidebar = ({
     }
   }, [theme]);
 
-  const toggleMobileMenu = () => setIsMobileMenuOpen((v) => !v);
-  const toggleTheme = () => setTheme((t) => (t === "light" ? "dark" : "light"));
+  // const toggleTheme = () => setTheme((t) => (t === "light" ? "dark" : "light"));
 
   const brandText = useMemo(() => (open ? "Placed" : "P"), [open]);
 
@@ -79,7 +77,6 @@ export const Sidebar = ({
             <a
               key={it.label}
               href={it.href}
-              onClick={() => setIsMobileMenuOpen(false)}
               className={clsx(
                 "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all duration-200 relative group",
                 "outline-none",

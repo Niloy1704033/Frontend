@@ -234,9 +234,9 @@ const Dashboard = () => {
             </div>
             <div className="space-y-3 ">
               {nextSteps.map((step) => (
-                <div className={`space-y-3 rounded-lg bg-white p-2 ${step.status === 'completed' ? 'border border-green-500' : ''
+                <div key={step.id} className={`space-y-3 rounded-lg bg-white p-2 ${step.status === 'completed' ? 'border border-green-500' : ''
                   }`}>
-                  <div key={step.id} className="flex items-start gap-2 sm:gap-3">
+                  <div  className="flex items-start gap-2 sm:gap-3">
                     <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center mt-0.5 ${step.status === 'completed' ? 'bg-green-500' : 'bg-gray-200'
                       }`}>
                       {step.status === 'completed' ? (
@@ -260,7 +260,7 @@ const Dashboard = () => {
 
           {/* Job Board */}
           <div className="bg-white rounded-2xl p-4 sm:p-6">
-            <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-4 sm:mb-6">Today's Job Board</h3>
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-4 sm:mb-6">Today&apos;s Job Board</h3>
             <div className="space-y-3 sm:space-y-4">
               {jobListings.map((job) => (
                 <div key={job.id} className="flex items-center justify-between p-2 sm:p-3 hover:bg-gray-50 rounded-lg transition-colors">

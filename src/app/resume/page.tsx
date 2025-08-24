@@ -12,7 +12,7 @@ import UploadingResume from '@/app/resume/UploadingResume'
 import AnalyzeResume from '@/app/resume/AnalyzeResume'
 import FinalScore from '@/app/resume/FinalScore'
 
-export default function page() {
+export default function Page() {
 
     const cards = Array.from({ length: 3 }).map((_, i) => ({
         id: i + 1,
