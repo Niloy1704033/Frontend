@@ -5,7 +5,13 @@ import {
   X
 
 } from 'lucide-react';
-export default function UploadResume({ onClose, onUploadResume }) {
+
+type Props = {
+  onClose?: any;
+  onUploadResume?: any;
+}
+
+export default function UploadResume({ onClose, onUploadResume } : Props) {
   return (
     <div className='mx-auto max-w-4xl text-center'>
       <div className="relative flex items-center justify-center">

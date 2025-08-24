@@ -2,9 +2,7 @@
 import React, { useState } from 'react';
 import {
   MoreHorizontal,
-  Download,
   ExternalLink,
-  Share2,
   TrendingUp,
   ChevronDown,
   Check,

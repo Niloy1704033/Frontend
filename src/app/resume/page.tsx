@@ -1,9 +1,10 @@
 "use client"
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import {
     ChevronRight, PlusCircle
 
 } from 'lucide-react';
+import Image from 'next/image';
 
 import ResumeScorer from '@/app/resume/ResumeScorer'
 import UploadResume from '@/app/resume/UploadResume'
@@ -92,7 +93,7 @@ export default function page() {
                                     <div className='p-6 bg-white rounded-xl border border-gray-300 rounded-lg' key={c.id}>
                                         <div className='flex items-center gap-2'>
                                             <div className='bg-gray-200 rounded-lg h-15 w-15 flex items-center justify-center'>
-                                                <img src="/pdf.png" alt="" className='h-12 w-12' />
+                                                <Image src="/pdf.png" alt="" width={48} height={48} />
                                             </div>
                                             <div className='flex flex-col'>
 

@@ -1,8 +1,14 @@
 "use client"
 import React from 'react';
 import { FolderPlus, X, ExternalLink } from 'lucide-react';
+import Image from 'next/image';
 
-export default function ResumeScorer({ onClose, onUploading }) {
+type Props = {
+  onClose?: any;
+  onUploading?: any;
+}
+
+export default function ResumeScorer({ onClose, onUploading } : Props) {
   const resumeHistory = [
     {
       name: 'my-cv.pdf',
@@ -59,7 +65,7 @@ export default function ResumeScorer({ onClose, onUploading }) {
                       <FileText className="w-5 h-5 text-red-600" />
                       <span className="text-xs text-red-600 font-semibold absolute">PDF</span>
                     </div> */}
-                    <img src="/pdf.png" alt="" className='h-10 w-10' />
+                    <Image src="/pdf.png" alt="" width={40} height={40} />
                     <div>
                       <p className="font-medium text-gray-900">{resume.name}</p>
                       <p className="text-sm text-gray-500">{resume.size} • Scored {resume.score}</p>

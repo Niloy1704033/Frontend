@@ -1,5 +1,6 @@
 "use client"
 import { Loader } from 'lucide-react';
+import Image from 'next/image';
 
 type Props = {
   onUploadComplete?: any;
@@ -9,7 +10,7 @@ export default function UploadingResume({ onUploadComplete }: Props) {
   return (
     <div className='mx-auto max-w-4xl bg-white' onClick={() => onUploadComplete()} >
       <div className="rounded-lg h-70 w-full flex items-center justify-center flex-col mt-5 max-w-xs mx-auto">
-        <img src="/pdf.png" alt="" className='h-15 w-15' />
+        <Image src="/pdf.png" alt="" width={60} height={60} />
         <div className='font-semibold text-lg'>Uploading Your Resume</div>
         <div className="h-2 w-full rounded-full bg-slate-100 mt-3 mb-2">
           <div

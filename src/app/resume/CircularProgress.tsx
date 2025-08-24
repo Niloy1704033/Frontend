@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image';
 
 const CircularProgress = ({ progress = 0 }) => {
   const radius = 44; // circle radius
@@ -37,7 +38,7 @@ const CircularProgress = ({ progress = 0 }) => {
       {/* Center Content */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="h-20 w-20 rounded-full bg-gray-100 flex items-center justify-center">
-          <img src="/pdf.png" alt="PDF" className="h-12 w-12" />
+          <Image src="/pdf.png" alt="PDF" width={48} height={48} />
         </div>
       </div>
     </div>

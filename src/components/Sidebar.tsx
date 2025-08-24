@@ -6,13 +6,7 @@ import {
   ClipboardList,
   Notebook,
   LayoutGrid,
-  Settings,
-  HelpCircle,
   MessageSquare,
-  Menu,
-  X,
-  Sun,
-  Moon
 } from "lucide-react";
 import clsx from "clsx";
 

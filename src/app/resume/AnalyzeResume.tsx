@@ -2,7 +2,11 @@ import React from 'react'
 import CircularProgress from '@/app/resume/CircularProgress'
 import { CircleCheck } from 'lucide-react';
 
-export default function AnalyzeResume({ onFinalScore }) {
+type Props = {
+  onFinalScore?: any;
+}
+
+export default function AnalyzeResume({ onFinalScore } : Props) {
   return (
     <div className='mx-auto max-w-4xl bg-white' onClick={() => onFinalScore()}>
       <div className="rounded-lg h-100 w-full flex items-center justify-center flex-col mt-5 mx-auto">
